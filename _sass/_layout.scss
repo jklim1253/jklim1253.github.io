@@ -2,26 +2,34 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
+    border-top: 5px solid #eee;
+    border-bottom: 1px solid #aaa;
     min-height: 56px;
 
     // Positioning context for the mobile navigation icon
     position: relative;
+	background-color: #eee;
+
+	color: orange;
 }
 
 .site-title {
-    font-size: 26px;
-    font-weight: 300;
+	color: #FFA500;
+    font-size: 40px;
+    font-weight: 700;
     line-height: 56px;
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
 
-    &,
-    &:visited {
-        color: $grey-color-dark;
-    }
+	&,
+	&:hover {
+		color: red;
+	}
+	&:visited {
+		color: orange;
+		text-decoration: none;
+	}
 }
 
 .site-nav {
@@ -173,6 +181,8 @@
 
 .page-heading {
     font-size: 20px;
+	line-height: 1.5;
+	border-bottom: 5px solid #eee;
 }
 
 .post-list {
@@ -186,12 +196,21 @@
 
 .post-meta {
     font-size: $small-font-size;
+	font-style: italic;
     color: $grey-color;
 }
 
 .post-link {
     display: block;
-    font-size: 24px;
+    font-size: 30px;
+	font-weight: 600;
+	background-color: #fcfcfc;
+	text-decoration: none;
+}
+.post-link:hover {
+	background-color: #eee;
+	text-decoration: none;
+	color: #9900cc;
 }
 
 
@@ -204,9 +223,13 @@
 }
 
 .post-title {
-    font-size: 42px;
+    font-size: 40px;
+	font-weight: 700;
     letter-spacing: -1px;
-    line-height: 1;
+    line-height: 1.5;
+
+	border-bottom: 1px solid #eee;
+	margin-bottom: 15px;
 
     @include media-query($on-laptop) {
         font-size: 36px;

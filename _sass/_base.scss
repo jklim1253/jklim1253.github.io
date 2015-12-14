@@ -8,7 +8,11 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
-
+hr {
+	border: 0;
+	border-bottom: 3px solid #eee;
+	background: #eee;
+}
 
 /**
  * Basic styling
@@ -151,7 +155,9 @@ pre {
     }
 }
 
-
+strong {
+	 background-color: #EEF;
+}
 
 /**
  * Wrapper

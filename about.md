@@ -1,15 +1,23 @@
 ---
 layout: page
 title: About
-permalink: /about/
+permalink: /About/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Just call me ***jklim***.
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
+I Like...  
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+	programming, reading book, sleeping...  
+
+I Can read the code of...  
+
+	C, C++, C#, Javascript, Java...  
+
+If U want to enjoy with me about codes...  
+
+make a issue at [my github](https://github.com/jklim1253/jklim1253.github.io/issues).
+
+Thank U.
+
+

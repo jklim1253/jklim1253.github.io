@@ -1,12 +1,14 @@
 ---
 layout: post
 title: "Javascript 공부방법"
-date: 2015-12-15, 22:31:00, +0900 
+date: 2016-01-11, 16:31:00, +0900 
 category: javascript
 tags: how-to learn javascript
 ---
 
 ---
+
+2016-01-11 마지막 업데이트.
 
 ### 시작하며.. 
 
@@ -63,7 +65,7 @@ Firefox나 크롬 브라우저의 콘솔창에서 예제 코드들을 실제 그
 
 	교재 5판의 경우 총 18장으로 구성되어 있으며, 거의 순서대로 읽으면 되는데,
 	모든 프로그래밍 언어의 소개에 해당하는 
-	자료형, 변수, 흐름 제어, 반복, 함수까지는 쭈욱 읽고서
+	자료형, 변수, 흐름 제어, 반복, 함수까지는 쭈욱 읽고서(Chapter 4까지)
 
 	다음으로 넘어가기 전에
 	마지막장에 소개된 **'흔한 실수들, 디버깅, 에러 처리'**를 먼저 읽고 다음 장으로 넘어간다.
@@ -162,6 +164,25 @@ Firefox나 크롬 브라우저의 콘솔창에서 예제 코드들을 실제 그
 ---
 
 ### Javascript에 대한 것들..
+
+- [x] Chapter 1. Introduction to Javascript and the Web
+- [x] Chapter 2. Data Types and Variables
+- [x] Chapter 3. Decisions and Loops
+- [ ] Chapter 4. Functions and Scope
+- [ ] Chapter 5. Javascript - An Object-Based Language
+- [ ] Chapter 6. String Manipulation
+- [ ] Chapter 7. Date, Time, and Timers
+- [ ] Chapter 8. Programming The Browser
+- [ ] Chapter 9. DOM Scripting
+- [ ] Chapter 10. Events
+- [ ] Chapter 11. HTML Forms : Interacting With The User
+- [ ] Chapter 12. JSON
+- [ ] Chapter 13. Data Storage
+- [ ] Chapter 14. AJAX
+- [ ] Chapter 15. HTML5 Media
+- [ ] Chapter 16. JQuery
+- [ ] Chapter 17. Other Javascript Libraries
+- [ ] Chapter 18. Common Mistakes, Debugging, And Error Handling
 
 ---
 

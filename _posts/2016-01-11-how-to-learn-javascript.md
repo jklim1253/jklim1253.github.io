@@ -168,7 +168,7 @@ Firefox나 크롬 브라우저의 콘솔창에서 예제 코드들을 실제 그
 - [x] Chapter 1. Introduction to Javascript and the Web
 - [x] Chapter 2. Data Types and Variables
 - [x] Chapter 3. Decisions and Loops
-- [ ] Chapter 4. Functions and Scope
+- [x] Chapter 4. Functions and Scope
 - [ ] Chapter 5. Javascript - An Object-Based Language
 - [ ] Chapter 6. String Manipulation
 - [ ] Chapter 7. Date, Time, and Timers
@@ -183,6 +183,8 @@ Firefox나 크롬 브라우저의 콘솔창에서 예제 코드들을 실제 그
 - [ ] Chapter 16. JQuery
 - [ ] Chapter 17. Other Javascript Libraries
 - [ ] Chapter 18. Common Mistakes, Debugging, And Error Handling
+
+function은 first-class citizen이다. 변수처럼 사용될 수 있다.(C/C++의 함수포인터로 사용가능하다.)
 
 ---
 

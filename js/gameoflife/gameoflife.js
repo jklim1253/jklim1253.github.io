@@ -53,17 +53,20 @@ function AppMain() {
 		}
 		keyState[e.keyCode] = false;
 	}
+	var width = 400;
+	var height = 400;
 	var bgcolor = "rgb(100,120,200)";
 	var grid = [];
 	var orig = [];
 	var stage = true;
 	var size = 10;
-	var row_max = parseInt(canvas.height/size);
-	var col_max = parseInt(canvas.width/size);
+	var row_max = parseInt(height/size);
+	var col_max = parseInt(width/size);
 	var count_alive = 0;
+	var stop_update = true;
 
-	Debugger.log("canvas width : " + canvas.width);
-	Debugger.log("canvas height : " + canvas.height);
+	Debugger.log("width : " + width);
+	Debugger.log("height : " + height);
 	Debugger.log("row max : " + row_max);
 	Debugger.log("col max : " + col_max);
 
@@ -81,6 +84,9 @@ function AppMain() {
 			if (orig[x] !== undefined && orig[x][y] !== undefined) {
 				orig[x][y].life = !orig[x][y].life;
 			}
+		}
+		if (mx > 0 && mx < width && my > height && my < canvas.height) {
+			stop_update = !stop_update;
 		}
 	}
 	function eventMouseUp(e) {
@@ -112,7 +118,6 @@ function AppMain() {
 		grid[17][19].life = true;
 		grid[17][18].life = true;
 	}
-	var stop_update = true;
 	function inputProcess() {
 		if (clickState[parseInt(KeyBoard.Enter)]) {
 			Debugger.log(KeyBoard.Enter + " click processing");
@@ -244,6 +249,29 @@ function AppMain() {
 		}
 	}
 	function drawui() {
+		context.save();
+		context.beginPath();
+		if (stop_update) {
+			context.fillStyle = "#fefefe";
+		}
+		else {
+			context.fillStyle = "#fe5555";
+		}
+		context.rect(0,height,width,canvas.height-height);
+		context.closePath();
+		context.fill();
+		context.font = "50px Open-Sans";
+		context.textAlign = "center";
+		context.textBaseline = "middle";
+		if (stop_update) {
+			context.fillStyle = "#333333";
+			context.fillText("Run", width/2, (height+canvas.height)/2);
+		}
+		else {
+			context.fillStyle = "#5555fe";
+			context.fillText("Stop", width/2, (height+canvas.height)/2);
+		}
+		context.restore();
 	}
 	function drawScreen () {
 		context.fillStyle = bgcolor;

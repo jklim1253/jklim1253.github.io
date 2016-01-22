@@ -1,6 +1,4 @@
-_site
-.sass-cache
-.jekyll-metadata
-
+# old zip
+*.zip
 # vim buffer
 *.swp

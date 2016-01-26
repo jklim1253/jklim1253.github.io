@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>title</title>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/main.css">
+<style>
+input#mazeid {
+	float: left;
+	font: 18px monospace;
+	color: #555555;
+	background-color: #eeeeee;
+	text-align: center;
+	width: 800px;
+	margin: 10px;
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 0px;
+	box-shadow: 0px 0px 5px 5px grey;
+}
+input#mazeid:focus {
+	background-color: #555555;
+	color: #ffffff;
+}
+</style>
+</head>
+<body>
+<a id="pwd" alt="cd root"></a>
+
+<div id="output">
+<div id="title">
+	here is for title.
+</div>
+<div id="picture">
+<canvas id="screen" width="680" height="680">
+</canvas>
+</div>
+<input id="mazeid">
+</input>
+<div id="description">
+	here is for description.
+</div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/data.js"></script>
+<script src="js/page.js"></script>
+<script>
+var name = "working.js.maze_maker";
+beautifulPage(name);
+</script>
+<script src="js/unit/modernizr-custom.js"></script>
+<script src="js/unit/common.js"></script>
+<script src="js/unit/vector.js"></script>
+<script src="js/unit/input.js"></script>
+<script src="js/unit/mazemaker.js"></script>
+
+</body>
+</html>

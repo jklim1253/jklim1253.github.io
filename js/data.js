@@ -71,5 +71,25 @@ js.append(new Item(
 			"working.js.game_of_life",
 			"img/gameoflife.png"
 			));
+js.append(new Item(
+			"Maze Maker",
+
+			"<h3>Make Maze to go to the goal hardly.</h3><br>"+
+			"&nbsp;<br>"+
+			"Mouse Click/Drag : toggle block insert/delete<br>"+
+			"Esc : clear map<br>"+
+			"&nbsp;<br>"+
+			"<h3>Rule</h3><br>"+
+			"....<br>"+
+			"&nbsp;<br>"+
+			"<h3>추가 개발 사항</h3><br>"+
+			"- 미로 적합성 검사 기능<br>"+
+			"- 미로 찾기 봇(bot) 기능<br>"+
+			"- 미로 찾는 시간 표시 기능<br>"+
+			"- 새로운 미로를 등록하는 기능(서버 필요)<br>",
+
+			"working.js.maze_maker",
+			"img/mazemaker.png"
+			));
 
 } // main-working

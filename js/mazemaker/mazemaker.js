@@ -48,6 +48,19 @@ Block.prototype.draw = function(context) {
 	}
 	context.restore();
 };
+Block.prototype.drawX = function(context) {
+	context.save();
+	context.beginPath();
+	context.moveTo(this.x, this.y);
+	context.lineTo(this.x+this.size, this.y+this.size);
+	context.moveTo(this.x+this.size, this.y);
+	context.lineTo(this.x, this.y+this.size);
+	context.closePath();
+	context.lineWidth = 1.0;
+	context.strokeStyle = "#ff0000";
+	context.stroke();
+	context.restore();
+};
 function Position(x, y) {
 	if (x === undefined) {
 		this.x = -1;
@@ -82,6 +95,7 @@ function AppMain() {
 	var blocksize = 40;
 	var margin = 20;
 	var blocks = [];
+	var wrongBlocks = [];
 	var cols = parseInt((canvas.width-margin*2)/blocksize);
 	var rows = parseInt((canvas.height-margin*2)/blocksize);
 	var mousepressed = false;
@@ -127,6 +141,56 @@ function AppMain() {
 			returnValue += v.toUpperCase();
 		}
 		return returnValue;
+	}
+	function verifyMaze(array) {
+		var returnValue = [];
+		for (var x = 0; x < array.length; x++) {
+			for (var y = 0; y < array[x].length; y++) {
+				if (array[x][y].state === "selected") {
+					if (array[x+1] === undefined ||
+						array[x+1][y+1] === undefined) {
+						// over range : do nothing.
+//						Debugger.log("["+(x+1)+"]["+(y+1)+"] is undefined");
+						continue;
+					}
+					// not allowed 4-block all selected.
+					else if (array[x][y+1].state === "selected" &&
+							array[x+1][y].state === "selected" &&
+							array[x+1][y+1].state === "selected" ) {
+						returnValue.push(array[x][y]);
+					}
+					// not allowed selected block connected with other selected block at only edge.
+					else if (array[x+1][y+1].state === "selected" &&
+							array[x][y+1].state !== "selected" &&
+							array[x+1][y].state !== "selected") {
+						returnValue.push(array[x][y]);
+					}
+				}
+				else {
+					if (array[x+1] === undefined ||
+						array[x+1][y+1] === undefined) {
+						// over range : do nothing.
+//						Debugger.log("["+(x+1)+"]["+(y+1)+"] is undefined");
+						continue;
+					}
+					// not allowed 4-block all non-selected.
+					else if (array[x][y+1].state !== "selected" &&
+							array[x+1][y].state !== "selected" &&
+							array[x+1][y+1].state !== "selected") {
+						returnValue.push(array[x][y]);
+					}
+					// not allowed non-selected block connected with other non-selected block at only edge.
+					else if (array[x+1][y+1].state !== "selected" &&
+							array[x][y+1].state === "selected" &&
+							array[x+1][y].state === "selected") {
+						returnValue.push(array[x][y]);
+					}
+				}
+			}
+		}
+		return returnValue;
+	}
+	function resolveMaze(array) {
 	}
 	function onMouseDown(e) {
 		mousepressed = true;
@@ -206,10 +270,13 @@ function AppMain() {
 		}
 	}
 	function onKeyDown(e) {
+		Debugger.log(e.keyCode + " key down");
 		keypressed[e.keyCode] = true;
 	}
 	function onKeyUp(e) {
+		Debugger.log(e.keyCode + " key up");
 		if (keypressed[e.keyCode]) {
+			Debugger.log(e.keyCode + " key clicked");
 			keyclicked[e.keyCode] = true;
 			inputProcess();
 		}
@@ -242,10 +309,37 @@ function AppMain() {
 			}
 			blocks[0][0].state = "end";
 			blocks[cols-1][rows-1].state = "start";
+
+			while (wrongBlocks.length > 0) {
+				wrongBlocks.pop();
+			}
+
+			keyclicked[KeyBoard.Esc] = false;
 		}
 		// save map.
 		if (keyclicked[KeyBoard.S]) {
+			keyclicked[KeyBoard.S] = false;
 		}
+		// verify map.
+		if (keyclicked[KeyBoard.V]) {
+			wrongBlocks = verifyMaze(blocks);
+			Debugger.log(wrongBlocks.length + " wrong blocks found.");
+			keyclicked[KeyBoard.V] = false;
+
+			// if maze verified, create maze id.
+			if (wrongBlocks.length === 0) {
+				updateMazeId();
+			}
+		}
+		// create maze id.
+		if (keyclicked[KeyBoard.C]) {
+			updateMazeId();
+			keyclicked[KeyBoard.C] = false;
+		}
+	}
+	function updateMazeId() {
+		var mazeid = document.getElementById("mazeid");
+		mazeid.value = makeMazeId(blocks);
 	}
 	function updateObjects() {
 	}
@@ -264,6 +358,9 @@ function AppMain() {
 				blocks[x][y].draw(context);
 			}
 		}
+		for (var i in wrongBlocks) {
+			wrongBlocks[i].drawX(context);
+		}
 		if (hoverindex.x >= 0 && hoverindex.x < cols &&
 			hoverindex.y >= 0 && hoverindex.y < rows) {
 			context.save();
@@ -279,8 +376,6 @@ function AppMain() {
 		}
 	}
 	function drawUI() {
-		var mazeid = document.getElementById("mazeid");
-		mazeid.value = makeMazeId(blocks);
 	}
 	function drawScreen() {
 		clearScreen();

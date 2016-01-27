@@ -78,12 +78,14 @@ js.append(new Item(
 			"&nbsp;<br>"+
 			"Mouse Click/Drag : toggle block insert/delete<br>"+
 			"Esc : clear map<br>"+
+			"V : verify map(if verified, maze id created.)<br>"+
+			"C : create maze id<br>"+
 			"&nbsp;<br>"+
 			"<h3>Rule</h3><br>"+
 			"....<br>"+
 			"&nbsp;<br>"+
 			"<h3>추가 개발 사항</h3><br>"+
-			"- 미로 적합성 검사 기능<br>"+
+			"- <div class='done'>미로 적합성 검사 기능</div><br>"+
 			"- 미로 찾기 봇(bot) 기능<br>"+
 			"- 미로 찾는 시간 표시 기능<br>"+
 			"- 새로운 미로를 등록하는 기능(서버 필요)<br>",

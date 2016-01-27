@@ -113,10 +113,19 @@ function AppMain() {
 		Debugger.log("orig[0] length is " + orig[0].length);
 
 		// make test case
-		grid[15][20].life = true;
-		grid[16][19].life = true;
-		grid[17][19].life = true;
+		grid[17][17].life = true;
+		grid[18][17].life = true;
+		grid[19][17].life = true;
+		grid[21][17].life = true;
 		grid[17][18].life = true;
+		grid[20][19].life = true;
+		grid[21][19].life = true;
+		grid[18][20].life = true;
+		grid[19][20].life = true;
+		grid[21][20].life = true;
+		grid[17][21].life = true;
+		grid[19][21].life = true;
+		grid[21][21].life = true;
 	}
 	function inputProcess() {
 		if (clickState[parseInt(KeyBoard.Enter)]) {

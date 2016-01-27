@@ -124,7 +124,7 @@ function AppMain() {
 			}
 			v = v.toString(16);
 			v = zerofill(v, 4);
-			returnValue += String.toUpperCase(v);
+			returnValue += v.toUpperCase();
 		}
 		return returnValue;
 	}
